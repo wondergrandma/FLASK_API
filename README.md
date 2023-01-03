@@ -1,32 +1,3 @@
-# Binary-Tree
+# Mikroservisa určená pre komunikáciue s databázou a GitLab serverom
 
-### Obsahuje funkcie:
-
-Pridanie prvkov. 
-
-Funkcia na vypísanie hodnôt v poradí Preorder, ktorú je možne modifikovať prehodením riadkov vo funkcii, môže byť vytvorené poradie Inorder a Postorder.
-```
-private void printPreorder(Uzol uzol)
-    {
-        if(uzol != null)
-        {
-            System.out.print(" " + uzol.getData());
-            printPreorder(uzol.getLeft());
-            printPreorder(uzol.getRight());
-        }
-    }
-```
-
-Funkcia na nájdenie najmenšej hodnoty, ktorá môže byť modifikovaná na najväčšiu zmenou `getLeft` na `getRight`.
-```
-public int minValue(Uzol uzol)
-    {
-        Uzol tmp = uzol;
-        while (tmp.getLeft() != null) {
-            tmp = tmp.getLeft();
-        }
-        return (tmp.getData());
-    }
-```
-
-Funkcia na porovnanie hĺbky stromu.
+Účel tejto mikroservisy je sprostredkúvať užívateľovi možnosť tvorby repozitáru na Gitlab servery, umožňuje vytvorenie repozitáru a pridávanie súborov. Tatiež mikroservisa spolupracuje so serverom na ktorom je spustená PostgreSQL databáza, v ktorej vytvára užívteľa a do tabulky ukladá jeho informácie + číslo jeho repozitáru, ktoré bude nasledne spracovávané ďaľšiou mikroservisou. 
